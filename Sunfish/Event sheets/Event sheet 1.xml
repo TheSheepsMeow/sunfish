@@ -1,0 +1,1081 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="playerLastY" sid="576036110205799" static="0" type="number">0</variable>
+        <variable constant="0" name="highScore" sid="366162674345702" static="0" type="number">1</variable>
+        <variable constant="0" name="streak" sid="553437618907205" static="0" type="number">0</variable>
+        <variable constant="0" name="pangle2" sid="502671998911905" static="0" type="number">0</variable>
+        <variable constant="0" name="pangle" sid="508256688861680" static="0" type="number">0</variable>
+        <variable constant="0" name="linerate" sid="119230148222064" static="0" type="number">0.1</variable>
+        <variable constant="0" name="fishrate" sid="207660683178399" static="0" type="number">1</variable>
+        <variable constant="0" name="albarate" sid="253703351005500" static="0" type="number">4</variable>
+        <variable constant="0" name="sealionrate" sid="267364224832822" static="0" type="number">8</variable>
+        <variable constant="0" name="orcarate" sid="544585658884083" static="0" type="number">16</variable>
+        <variable constant="0" name="sharkrate" sid="245248193789585" static="0" type="number">4</variable>
+        <variable constant="0" name="eaten" sid="787032235537850" static="0" type="number">0</variable>
+        <comment></comment>
+        <event-group description="" sid="841548659222146" title="Startup">
+            <sub-events>
+                <event-block sid="218926303722822">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="138379305455743">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="754259322106249">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="421673834775444" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="940515860608768" type="ParticlesSunfish">
+                            <param id="0" name="Object">player</param>
+                            <param id="1" name="Image point (optional)">1</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="426141895029917" type="ParticlesSunfish">
+                            <param id="0" name="Pin to">player</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="508984082267657" type="ParticlesTrail">
+                            <param id="0" name="Object">player</param>
+                            <param id="1" name="Image point (optional)">1</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="851804435341614" type="ParticlesTrail">
+                            <param id="0" name="Pin to">player</param>
+                            <param id="1" name="Mode">1</param>
+                        </action>
+                        <action disabled="1" id="8" name="Set silent" sid="217489454316835" type="Audio">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="411856508756537">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="112804014673082">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="327744075954729" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="807460038721112" type="SpriteFont">
+                            <param id="0" name="Text">eaten &amp; &quot; / &quot; &amp; highScore  &amp; &quot; / &quot; &amp; LocalStorage.ItemValue &amp; newline &amp; streak  &amp; newline &amp; int(pangle)  &amp; &quot; / &quot; &amp;  int(pangle2)</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="306879738571298" type="player">
+                            <param id="0" name="X">160</param>
+                        </action>
+                        <action id="-24" name="Move to top" sid="639841802513089" type="player" />
+                    </actions>
+                </event-block>
+                <event-block sid="595442258826706">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="643636784895195">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="667665350478376" title="Controls">
+            <sub-events>
+                <event-block sid="509144778187120">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="176236041326822">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="419974042963666">
+                    <conditions>
+                        <condition id="2" name="Is in touch" sid="132630784964325" type="Touch" />
+                    </conditions>
+                    <actions>
+                        <action id="-21" name="Rotate toward position" sid="482776210824664" type="player">
+                            <param id="0" name="Degrees">5</param>
+                            <param id="1" name="X">Touch.X</param>
+                            <param id="2" name="Y">Touch.Y</param>
+                        </action>
+                        <action id="-23" name="Move at angle" sid="964594274940783" type="player">
+                            <param id="0" name="Angle">Self.Angle</param>
+                            <param id="1" name="Distance">8</param>
+                        </action>
+                        <action id="0" name="Set spraying" sid="685679208559968" type="ParticlesTrail">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment></comment>
+                <event-block sid="809985318351411">
+                    <conditions>
+                        <condition id="2" inverted="1" name="Is in touch" sid="588791465614397" type="Touch" />
+                        <condition id="1" name="Is overlapping another object" sid="578809516023430" type="player">
+                            <param id="0" name="Object">water</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-20" name="Rotate toward angle" sid="729044650790657" type="player">
+                            <param id="0" name="Degrees">3</param>
+                            <param id="1" name="Angle">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment></comment>
+                <event-block sid="969401752447934">
+                    <conditions>
+                        <condition id="2" inverted="1" name="Is in touch" sid="877643191014213" type="Touch" />
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="732050358703786" type="player">
+                            <param id="0" name="Object">water</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-23" name="Move at angle" sid="348846667743965" type="player">
+                            <param id="0" name="Angle">90</param>
+                            <param id="1" name="Distance">12</param>
+                        </action>
+                        <action id="-20" name="Rotate toward angle" sid="538089215655188" type="player">
+                            <param id="0" name="Degrees">4</param>
+                            <param id="1" name="Angle">90</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="252710980657350">
+                    <conditions>
+                        <condition id="2" inverted="1" name="Is in touch" sid="215922753352066" type="Touch" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set spraying" sid="351589238526366" type="ParticlesTrail">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="710539619570161">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="299144221284246">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="725567213543619" title="Spawning">
+            <sub-events>
+                <event-block sid="954291050692623">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="196780039226336">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="303580431899287" type="System">
+                            <param id="0" name="Interval (seconds)">albarate+ random(2)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="951783308940538" type="System">
+                            <param id="0" name="Object to create">badAlbatross</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">LayoutWidth + 100</param>
+                            <param id="3" name="Y">random(0,150)</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="783137967603936" type="badAlbatross">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="606608732192549">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="606315654111921" type="System">
+                            <param id="0" name="Interval (seconds)">sealionrate + random(2)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="614811556369418" type="System">
+                            <param id="0" name="Object to create">badSealion</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">LayoutWidth + 100</param>
+                            <param id="3" name="Y">random(280,320)</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="412839456271842" type="badSealion">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="816762512017500">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="176067930568282" type="System">
+                            <param id="0" name="Interval (seconds)">orcarate + random(2)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="375605481701331" type="System">
+                            <param id="0" name="Object to create">badOrca</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">-200</param>
+                            <param id="3" name="Y">random(300,400)</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="693137620759945" type="badOrca">
+                            <param id="0" name="Angle">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="612107373648892">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="883234778023331" type="System">
+                            <param id="0" name="Interval (seconds)">sharkrate + random(2)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="782300060469827" type="System">
+                            <param id="0" name="Object to create">badShark</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">-150</param>
+                            <param id="3" name="Y">random(400,480)</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="168083647592595" type="badShark">
+                            <param id="0" name="Angle">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="818514643986587">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="986804401849954" title="Collisions">
+            <sub-events>
+                <event-block sid="431895052327366">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="329672833067505">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="915015456315796">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="881002609970832" type="player">
+                            <param id="0" name="Object">fish</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="456034201219621" type="fish">
+                            <param id="0" name="Object">ParticlesFish</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="697216953095622" type="fish" />
+                        <action id="-10" name="Add to" sid="585939315817388" type="System">
+                            <param id="0" name="Variable">eaten</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="925944205213044">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="904025960875722" type="player">
+                            <param id="0" name="Object">badAlbatross</param>
+                        </condition>
+                        <condition id="0" name="On collision with another object" sid="481827472072412" type="player">
+                            <param id="0" name="Object">badSealion</param>
+                        </condition>
+                        <condition id="0" name="On collision with another object" sid="345531298252535" type="player">
+                            <param id="0" name="Object">badOrca</param>
+                        </condition>
+                        <condition id="0" name="On collision with another object" sid="462510990997571" type="player">
+                            <param id="0" name="Object">badShark</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="456790736937726" type="Function">
+                            <param id="0" name="Name">&quot;lose&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="145975638201965">
+                            <conditions>
+                                <condition id="-15" name="Pick nearest/furthest" sid="170270279666049" type="bad">
+                                    <param id="0" name="Which">0</param>
+                                    <param id="1" name="X">player.X</param>
+                                    <param id="2" name="Y">player.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform2" id="11" name="Set enabled" sid="251880288366075" type="bad">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Platform2" id="9" name="Set vector Y" sid="758520159927621" type="bad">
+                                    <param id="0" name="Vector Y">-450</param>
+                                </action>
+                                <action behavior="Rotate" id="0" name="Set speed" sid="672661449413264" type="bad">
+                                    <param id="0" name="Speed">500</param>
+                                </action>
+                                <action behavior="Rotate" id="1" name="Set acceleration" sid="299258202341634" type="bad">
+                                    <param id="0" name="Acceleration">1000</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="732342161810277">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="556981006621920">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="360818740026298">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="378097467707202" title="Environment">
+            <sub-events>
+                <event-block sid="171503772188895">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="993418082390403">
+                    <conditions />
+                    <actions>
+                        <action disabled="1" id="-20" name="Set layout scale" sid="823115583193465" type="System">
+                            <param id="0" name="Scale">0.33</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="262500860160907">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="275330929112766" type="System">
+                            <param id="0" name="Interval (seconds)">random(2,8)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="345725504537652" type="System">
+                            <param id="0" name="Object to create">cloud</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">LayoutWidth + 300</param>
+                            <param id="3" name="Y">random(0,100)</param>
+                        </action>
+                        <action behavior="Bullet" disabled="1" id="3" name="Set angle of motion" sid="398108994983711" type="cloud">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="640767821923285">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="142065078789242" type="System">
+                            <param id="0" name="Interval (seconds)">linerate</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="637722512850706" type="System">
+                            <param id="0" name="Object to create">lines</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">LayoutWidth + 100</param>
+                            <param id="3" name="Y">random(0,300)</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="254966801303273" type="lines">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="430784124152622">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <comment></comment>
+                <event-block sid="716118188644425">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="573373447025659" type="System">
+                            <param id="0" name="Interval (seconds)">0.5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="380932522884191" type="System">
+                            <param id="0" name="Object to create">wavesBG</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">LayoutWidth + 200</param>
+                            <param id="3" name="Y">random(235,240)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="968777327970303">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="758803265859409" type="System">
+                            <param id="0" name="Interval (seconds)">0.66</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="449277104057066" type="System">
+                            <param id="0" name="Object to create">wavesMG</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">LayoutWidth + 200</param>
+                            <param id="3" name="Y">random(240,245)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="668494968990582">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="720932214571218" type="System">
+                            <param id="0" name="Interval (seconds)">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="661395903190010" type="System">
+                            <param id="0" name="Object to create">wavesFG</param>
+                            <param id="1" name="Layer">2</param>
+                            <param id="2" name="X">LayoutWidth + 500</param>
+                            <param id="3" name="Y">random(245,255)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="559574564424692">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="181628679693029">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="415897528872936" type="System">
+                            <param id="0" name="Interval (seconds)">fishrate</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="486630500796242" type="System">
+                            <param id="0" name="Object to create">fish</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">LayoutWidth + 300</param>
+                            <param id="3" name="Y">random(300,500)</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="166290136999246" type="fish">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="625071706079997" type="System">
+                            <param id="0" name="Object to create">kelp</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">LayoutWidth + 300</param>
+                            <param id="3" name="Y">LayoutHeight-(kelp.Height/3)+random(-25,150)</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="507712694635590" type="kelp">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                        <action id="9" name="Set scale" sid="677193031195351" type="kelp">
+                            <param id="0" name="Scale">random(0.8,1.2)</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="639060331010849" type="kelp">
+                            <param id="0" name="Opacity">random(40,90)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="769161284219810">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="965185941870723" type="System">
+                                    <param id="0" name="First value">choose(0,1)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="367796718222568" type="kelp">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="308865303838085">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="684610561169083">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="628307119198622" title="Splash">
+            <sub-events>
+                <event-block sid="159448992893565">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="524404245326591">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="434083667323658">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="447162349807033" type="System">
+                            <param id="0" name="Interval (seconds)">0.2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="784240423632956" type="System">
+                            <param id="0" name="Variable">playerLastY</param>
+                            <param id="1" name="Value">player.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment></comment>
+                <event-block any="1" sid="691667611612302">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="904105383390123" type="player">
+                            <param id="0" name="Object">water</param>
+                        </condition>
+                        <condition id="0" name="On collision with another object" sid="689510895224693" type="player">
+                            <param id="0" name="Object">sky</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="813504691556559" type="System">
+                            <param id="0" name="Object to create">watersplash</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">player.X</param>
+                            <param id="3" name="Y">240</param>
+                        </action>
+                        <action disabled="1" id="-24" name="Move to top" sid="676166316879386" type="watersplash" />
+                    </actions>
+                    <sub-events>
+                        <comment>break water surface slowly = small splash</comment>
+                        <event-block sid="783128435478861">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="149651542775642" type="System">
+                                    <param id="0" name="First value">abs(player.Y-playerLastY)</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">30</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="9" name="Set scale" sid="783446441104559" type="watersplash">
+                                    <param id="0" name="Scale">0.66</param>
+                                </action>
+                                <action id="0" name="Play" sid="294002542874771" type="Audio">
+                                    <param id="0" name="Audio file">Explosion 2</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>medium splash</comment>
+                        <event-block sid="465305549636850">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="947052477576095" type="System">
+                                    <param id="0" name="First value">abs(player.Y-playerLastY)</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Second value">30</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="619783553746839" type="System">
+                                    <param id="0" name="First value">abs(player.Y-playerLastY)</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">45</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="9" name="Set scale" sid="307434421330050" type="watersplash">
+                                    <param id="0" name="Scale">0.75</param>
+                                </action>
+                                <action id="0" name="Play" sid="545739197060485" type="Audio">
+                                    <param id="0" name="Audio file">Explosion 2</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-5</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>break water surface quickly = big splash</comment>
+                        <event-block sid="689392114567917">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="394441410105856" type="System">
+                                    <param id="0" name="First value">abs(player.Y-playerLastY)</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Second value">45</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="9" name="Set scale" sid="608315537048207" type="watersplash">
+                                    <param id="0" name="Scale">1</param>
+                                </action>
+                                <action id="0" name="Play" sid="775031927863113" type="Audio">
+                                    <param id="0" name="Audio file">Explosion 2</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="180482728628107">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="503216386654662">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="270626182168926" title="Losing">
+            <sub-events>
+                <event-block sid="915907754695602">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="703725893515911">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="953287390283570">
+                    <conditions>
+                        <condition id="0" name="On function" sid="229463623158600" type="Function">
+                            <param id="0" name="Name">&quot;lose&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="852699240367229" type="player">
+                            <param id="0" name="Animation">&quot;Flipped&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="Flash" id="0" name="Flash" sid="735257418690650" type="skyBG">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">0.2</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="873977258200911" type="player">
+                            <param id="0" name="Object">ParticlesHurt</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action disabled="1" id="-9" name="Destroy" sid="546930116206916" type="player" />
+                        <action behavior="Fade" id="1" name="Start fade" sid="289999716286958" type="fade" />
+                        <action id="-12" name="Set group active" sid="693514711506588" type="System">
+                            <param id="0" name="Group name">&quot;Controls&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="229434196737415" type="System">
+                            <param id="0" name="Group name">&quot;Collisions&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action behavior="Rotate" id="0" name="Set speed" sid="858777893641255" type="player">
+                            <param id="0" name="Speed">50</param>
+                        </action>
+                        <action behavior="Rotate" id="1" name="Set acceleration" sid="756081080469207" type="player">
+                            <param id="0" name="Acceleration">-1000</param>
+                        </action>
+                        <action behavior="Platform" id="11" name="Set enabled" sid="915058349134678" type="player">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action behavior="Platform" id="9" name="Set vector Y" sid="871123658621160" type="player">
+                            <param id="0" name="Vector Y">-450</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="853958101182048" type="System">
+                            <param id="0" name="Seconds">1</param>
+                        </action>
+                        <action id="-26" name="Restart layout" sid="308450791670181" type="System" />
+                        <action id="-21" name="Reset global variables" sid="518400006366543" type="System" />
+                    </actions>
+                </event-block>
+                <event-block sid="609632451670639">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="445136603556524">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="939980864256636">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="559062853728016" title="Flips">
+            <sub-events>
+                <event-block sid="289083879925020">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="482385565451498">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="829243121073317" type="System">
+                            <param id="0" name="Interval (seconds)">0.2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="842277534962735" type="System">
+                            <param id="0" name="Variable">pangle</param>
+                            <param id="1" name="Value">player.Angle</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="698370879362552" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="967108520828139" type="System">
+                            <param id="0" name="Variable">pangle2</param>
+                            <param id="1" name="Value">pangle</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="324273488821760">
+                    <conditions>
+                        <condition id="2" name="Is in touch" sid="141170610284720" type="Touch" />
+                        <condition disabled="1" id="-8" name="Compare two values" sid="318930989260695" type="System">
+                            <param id="0" name="First value">player.Angle</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">pangle</param>
+                        </condition>
+                        <condition disabled="1" id="-8" name="Compare two values" sid="475040010865215" type="System">
+                            <param id="0" name="First value">pangle</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">pangle2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="303349481713285" type="System">
+                            <param id="0" name="Variable">streak</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action disabled="1" id="0" name="Spawn another object" sid="846089501057578" type="player">
+                            <param id="0" name="Object">trail</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="812316875437569">
+                    <conditions>
+                        <condition id="2" name="Is in touch" sid="346203885958034" type="Touch" />
+                        <condition id="-8" inverted="1" name="Compare two values" sid="953575395762435" type="System">
+                            <param id="0" name="First value">player.Angle</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">pangle</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="376754894217313" type="System">
+                            <param id="0" name="First value">pangle</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">pangle2</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="495585562808991" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="158528565269339" type="System">
+                            <param id="0" name="Variable">streak</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="629492347409678">
+                    <conditions>
+                        <condition id="2" name="Is in touch" sid="655497588807183" type="Touch" />
+                        <condition disabled="1" id="-8" name="Compare two values" sid="520574033325471" type="System">
+                            <param id="0" name="First value">player.Angle</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">pangle</param>
+                        </condition>
+                        <condition disabled="1" id="-8" name="Compare two values" sid="603393349813639" type="System">
+                            <param id="0" name="First value">pangle</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">pangle2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="744162067074039" type="System">
+                            <param id="0" name="Variable">streak</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action disabled="1" id="0" name="Spawn another object" sid="316099617723809" type="player">
+                            <param id="0" name="Object">trail</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="440521042635446">
+                    <conditions>
+                        <condition id="2" name="Is in touch" sid="315227520163236" type="Touch" />
+                        <condition id="-8" inverted="1" name="Compare two values" sid="259131267994907" type="System">
+                            <param id="0" name="First value">player.Angle</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">pangle</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="532283297876723" type="System">
+                            <param id="0" name="First value">pangle</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">pangle2</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="539215936894373" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="778128034704067" type="System">
+                            <param id="0" name="Variable">streak</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="337070526951553">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="360063964300792">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="923749009404979">
+                    <conditions>
+                        <condition id="1" name="On any touch end" sid="736600438420218" type="Touch" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="629524270625550" type="System">
+                            <param id="0" name="Variable">streak</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="359107423572901">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="313198272663523" title="Cleanup">
+            <sub-events>
+                <event-block sid="935563537759844">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block any="1" sid="223431014363727">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="398279696509195" type="cloud">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">-800</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="256286780888270" type="cloud">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="X co-ordinate">1200</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="453574461430079" type="cloud" />
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="486894735936402">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="378603342130615" type="lines">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">-800</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="213669886469606" type="lines">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="X co-ordinate">1200</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="712491839323640" type="lines" />
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="230347078127666">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="657827359054654" type="bad">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">-800</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="647642961267120" type="bad">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="X co-ordinate">1200</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="550950524614943" type="bad" />
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="923590348943896">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="978321196593556" type="fish">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">-800</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="819801763205268" type="fish">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="X co-ordinate">1200</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="764479816224608" type="fish" />
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="666990980717217">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="477812719420969" type="kelp">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">-800</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="297060302005807" type="kelp">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="X co-ordinate">1200</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="311144515913074" type="kelp" />
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="513935229507586">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="826943042253147" type="waves">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">-800</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="311536690230360" type="waves">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="X co-ordinate">1200</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="485583647878816" type="waves" />
+                    </actions>
+                </event-block>
+                <event-block sid="557801876380648">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="357124900820152">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="736633452739528" title="LocalStorage">
+            <sub-events>
+                <event-block sid="846078643122578">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="124223646776581">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="375021454355617" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Check item exists" sid="806666095342877" type="LocalStorage">
+                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="826049226997496">
+                    <conditions>
+                        <condition id="9" name="On item exists" sid="274794791277557" type="LocalStorage">
+                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Get item" sid="464634633297866" type="LocalStorage">
+                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="102649493034540">
+                    <conditions>
+                        <condition id="1" name="On item get" sid="751603213775238" type="LocalStorage">
+                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="324055635596970" type="System">
+                            <param id="0" name="Variable">highScore</param>
+                            <param id="1" name="Value">LocalStorage.ItemValue</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="135303278676911">
+                    <conditions>
+                        <condition id="10" name="On item missing" sid="238399714470637" type="LocalStorage">
+                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="149252435545708" type="System">
+                            <param id="0" name="Variable">highScore</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="954219969155804">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="627013140526728" type="System">
+                            <param id="0" name="Variable">eaten</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">highScore</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="729250024561184" type="System">
+                            <param id="0" name="Variable">highScore</param>
+                            <param id="1" name="Value">eaten</param>
+                        </action>
+                        <action id="0" name="Set item" sid="267340155705901" type="LocalStorage">
+                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
+                            <param id="1" name="Value">highScore</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="935549895113686">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="235327157993374" title="Group10">
+            <sub-events>
+                <event-block sid="566670644175565">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="892036248319633">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="327900792491275">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="176299583556680">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="551037266817509">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="417108772633143" title="Group11">
+            <sub-events>
+                <event-block sid="974603976759607">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="116841918383109">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="805406093250686">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="901035934657062">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="391659655168414">
+                    <conditions />
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

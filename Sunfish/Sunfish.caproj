@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Sunfish</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author>The Sheep&apos;s Meow</author>
+    <author-email></author-email>
+    <author-website>http://www.thesheepsmeow.com</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>5ibjvf177z81</unique-id>
+    <saved-with-version>23900</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
+        <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
+        <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>320</width>
+        <height>480</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Construct 2 splash</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">Chrome</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="player" sid="410723248255959">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Platform" sid="973569432503786">
+                    <behavior id="Platform" />
+                </behavior-type>
+                <behavior-type name="Rotate" sid="899541610658176">
+                    <behavior id="Rotate" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="675269532246640" speed="5">
+                    <frame duration="1" hotspotX="0.503759" hotspotY="0.503311" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\player_swim0.png">
+                        <image-point name="Imagepoint 1" x="0.240602" y="0.490066" />
+                        <collision-poly>
+                            <point x="0.377953" y="0.378698" />
+                            <point x="0.755906" y="0.378698" />
+                            <point x="0.755906" y="0.568047" />
+                            <point x="0.377953" y="0.568047" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.503937" hotspotY="0.502959" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\player_Swim1.png">
+                        <image-point name="Imagepoint 1" x="0.244094" y="0.491124" />
+                        <collision-poly>
+                            <point x="0.377953" y="0.378698" />
+                            <point x="0.755906" y="0.378698" />
+                            <point x="0.755906" y="0.568047" />
+                            <point x="0.377953" y="0.568047" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Flipped" pingpong="0" repeatcount="1" repeatto="0" sid="383718334696727" speed="5">
+                    <frame duration="1" hotspotX="0.503759" hotspotY="0.503311" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\player_flip.png">
+                        <collision-poly>
+                            <point x="0.233083" y="0.331126" />
+                            <point x="0.729323" y="0.331126" />
+                            <point x="0.729323" y="0.761589" />
+                            <point x="0.233083" y="0.76159" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Touch" sid="726433410054346">
+            <plugin id="Touch" />
+        </object-type>
+        <object-type name="water" sid="146478852941040">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="fish" sid="387150850424998">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="608805607314263">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="244606043065029" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="lines" sid="720006726315322">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="996337486834714">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="802001509402875" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ParticlesHurt" sid="893956952037841">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
+        <object-type name="SpriteFont" sid="378424215702662">
+            <plugin id="Spritefont2" />
+            <texture />
+        </object-type>
+        <object-type name="badOrca" sid="278176367364678">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="270567335470825">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="531613703726654" speed="4">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.502618" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\orca0.png">
+                        <collision-poly>
+                            <point x="0.99711" y="0.497382" />
+                            <point x="0.867052" y="0.759162" />
+                            <point x="0.5" y="0.95288" />
+                            <point x="0.138728" y="0.748691" />
+                            <point x="0.294798" y="0.497382" />
+                            <point x="0.283237" y="0.513089" />
+                            <point x="0.5" y="0.293194" />
+                            <point x="0.855491" y="0.26178" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\orca1.png">
+                        <collision-poly>
+                            <point x="0.985294" y="0.5" />
+                            <point x="0.885294" y="0.785714" />
+                            <point x="0.5" y="0.978022" />
+                            <point x="0.164706" y="0.692308" />
+                            <point x="0.161765" y="0.5" />
+                            <point x="0.255882" y="0.478022" />
+                            <point x="0.5" y="0.285714" />
+                            <point x="0.844118" y="0.291209" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="badAlbatross" sid="497591039154064">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="212044330719078">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="454204352174935" speed="5">
+                    <frame duration="1" hotspotX="0.505495" hotspotY="0.168067" original-source="C:\Users\Pitchfork\Desktop\bird0.png">
+                        <collision-poly>
+                            <point x="0.115385" y="0.176471" />
+                            <point x="0.5" y="0.0168067" />
+                            <point x="0.906593" y="0.142857" />
+                            <point x="0.758242" y="0.495798" />
+                            <point x="0.758242" y="0.630252" />
+                            <point x="0.5" y="0.428571" />
+                            <point x="0.175824" y="0.731092" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.502732" hotspotY="0.72" original-source="C:\Users\Pitchfork\Desktop\bird1.png">
+                        <collision-poly>
+                            <point x="0.136612" y="0.2" />
+                            <point x="0.497268" y="0.592" />
+                            <point x="0.863388" y="0.2" />
+                            <point x="0.830601" y="0.496" />
+                            <point x="0.928962" y="0.896" />
+                            <point x="0.497268" y="0.992" />
+                            <point x="0.120219" y="0.824" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Function" sid="454006202530403">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="fade" sid="559591422379795">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Fade" sid="274593374875165">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="watersplash" sid="910379242580270">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Fade" sid="155147730195150">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="665965487201367" speed="20">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.827586" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\splash.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.827586">
+                        <collision-poly>
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sky" sid="270954618844375">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="ParticlesFish" sid="396650223548994">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
+        <object-type name="cloud" sid="224060883971244">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="168301100061788">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="291091407269633" speed="1">
+                    <frame duration="1" hotspotX="0.504065" hotspotY="0.5" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\bg_cloud0.png" />
+                    <frame duration="1" hotspotX="0.504065" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Audio" sid="271636988909130">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="ParticlesSunfish" sid="781123675597644">
+            <plugin id="Particles" />
+            <behaviors>
+                <behavior-type name="Pin" sid="529811786456126">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="skyBG" sid="175752214563631">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Flash" sid="644750621105152">
+                    <behavior id="Flash" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="574301815335961" speed="5">
+                    <frame duration="1" hotspotX="0.09375" hotspotY="0.5" original-source="C:\Users\Pitchfork\Desktop\skybg.png">
+                        <collision-poly>
+                            <point x="0.09375" y="0" />
+                            <point x="1" y="0.26875" />
+                            <point x="1" y="0.73125" />
+                            <point x="0.09375" y="1" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="wavesMG" sid="439445858625302">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="945813046825825">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="677433082746156" speed="10">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\wave0.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\wave1.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="badShark" sid="178847926159381">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="214143145694277">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="803700621206275" speed="4">
+                    <frame duration="1" hotspotX="0.497076" hotspotY="0.502793" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\shark0.png">
+                        <collision-poly>
+                            <point x="0.994152" y="0.497207" />
+                            <point x="0.871345" y="0.75419" />
+                            <point x="0.5" y="0.832402" />
+                            <point x="0.225146" y="0.569832" />
+                            <point x="0.105263" y="0.497207" />
+                            <point x="0.122807" y="0.234637" />
+                            <point x="0.5" y="0.251397" />
+                            <point x="0.839181" y="0.307263" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.496988" hotspotY="0.5" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\shark1.png">
+                        <collision-poly>
+                            <point x="0.993976" y="0.5" />
+                            <point x="0.861446" y="0.75" />
+                            <point x="0.027108" y="0.951087" />
+                            <point x="0.036145" y="0.5" />
+                            <point x="0.274096" y="0.494565" />
+                            <point x="0.5" y="0.277174" />
+                            <point x="0.828313" y="0.309783" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="kelp" sid="838502842274648">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="108932515924480">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="593583835034036" speed="4">
+                    <frame duration="1" hotspotX="0.466667" hotspotY="0.459016" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\fg_kelp0.png" />
+                    <frame duration="1" hotspotX="0.465116" hotspotY="0.459016" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\fg_kelp1.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="badSealion" sid="155357122750650">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="763956191402469">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="878354726498303" speed="4">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.506024" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\sealion0.png">
+                        <collision-poly>
+                            <point x="0.0875912" y="0.289157" />
+                            <point x="0.5" y="0.0240964" />
+                            <point x="0.923358" y="0.253012" />
+                            <point x="0.850365" y="0.493976" />
+                            <point x="0.850365" y="0.506024" />
+                            <point x="0.5" y="0.915663" />
+                            <point x="0.080292" y="0.73494" />
+                            <point x="0.0145985" y="0.493976" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.505376" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\sealion1.png">
+                        <collision-poly>
+                            <point x="0.0714286" y="0.204301" />
+                            <point x="0.5" y="0.0107527" />
+                            <point x="0.917293" y="0.236559" />
+                            <point x="0.808271" y="0.494624" />
+                            <point x="0.819549" y="0.483871" />
+                            <point x="0.5" y="0.83871" />
+                            <point x="0.135338" y="0.612903" />
+                            <point x="0.0338346" y="0.494624" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="palette" sid="990695817002982">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="756283536551067" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.501341" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="trail" sid="999779927487311">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Fade" sid="544379149187610">
+                    <behavior id="Fade" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="209035310182641">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="675958275150515" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ParticlesTrail" sid="147816815061140">
+            <plugin id="Particles" />
+            <behaviors>
+                <behavior-type name="Pin" sid="156516380483779">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="LocalStorage" sid="646395897867324">
+            <plugin id="LocalStorage" />
+        </object-type>
+        <object-type name="wavesBG" sid="368602633042270">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="829335906944371">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="664883255390519" speed="10">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\wave0.png">
+                        <collision-poly>
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\wave1.png">
+                        <collision-poly>
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="wavesFG" sid="450451046068321">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="621796000587235">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="346488931905688" speed="10">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\brian\Downloads\wave_large.png">
+                        <collision-poly>
+                            <point x="0.0673317" y="0.586957" />
+                            <point x="0.5" y="0.641304" />
+                            <point x="0.935162" y="0.565217" />
+                            <point x="0.922693" y="0.5" />
+                            <point x="0.965087" y="0.695652" />
+                            <point x="0.5" y="0.663043" />
+                            <point x="0.0311721" y="0.728261" />
+                            <point x="0.0860349" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.913965" y="0.5" />
+                            <point x="0.968828" y="0.728261" />
+                            <point x="0.5" y="0.663043" />
+                            <point x="0.0349127" y="0.695652" />
+                            <point x="0.0773067" y="0.5" />
+                            <point x="0.0648379" y="0.565217" />
+                            <point x="0.5" y="0.641304" />
+                            <point x="0.932668" y="0.586957" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
+    <families>
+        <family name="bad" plugin-id="Sprite" sid="908187443719734">
+            <members>
+                <member>badAlbatross</member>
+                <member>badOrca</member>
+                <member>badSealion</member>
+                <member>badShark</member>
+            </members>
+            <behaviors>
+                <behavior-type name="Platform2" sid="123518165089242">
+                    <behavior id="Platform" />
+                </behavior-type>
+                <behavior-type name="Rotate" sid="698884221522287">
+                    <behavior id="Rotate" />
+                </behavior-type>
+            </behaviors>
+        </family>
+        <family name="waves" plugin-id="Sprite" sid="800177328830945">
+            <members>
+                <member>wavesBG</member>
+                <member>wavesFG</member>
+                <member>wavesMG</member>
+            </members>
+        </family>
+    </families>
+    <layout-folder>
+        <layout>Layout 1.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Event sheet 1.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Touch" uid="1">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+        <global-instance type="Function" uid="9" />
+        <global-instance type="Audio" uid="15">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
+        <global-instance type="LocalStorage" uid="25" />
+    </global-instances>
+    <sounds-folder>
+        <file name="Explosion 2.m4a" />
+        <file name="Explosion 2.ogg" />
+    </sounds-folder>
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>
