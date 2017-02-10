@@ -47,8 +47,11 @@
                             <param id="0" name="Pin to">player</param>
                             <param id="1" name="Mode">1</param>
                         </action>
-                        <action disabled="1" id="8" name="Set silent" sid="217489454316835" type="Audio">
-                            <param id="0" name="Mode">0</param>
+                        <action id="0" name="Play" sid="217489454316835" type="Audio">
+                            <param id="0" name="Audio file">Menu Sound</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -274,6 +277,54 @@
                             <param id="0" name="Variable">eaten</param>
                             <param id="1" name="Value">1</param>
                         </action>
+                        <action disabled="1" id="0" name="Play" sid="876972470743739" type="Audio">
+                            <param id="0" name="Audio file">Flip 1</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action disabled="1" id="0" name="Play" sid="103175716867479" type="Audio">
+                            <param id="0" name="Audio file">Flip2</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action disabled="1" id="0" name="Play" sid="226882081011658" type="Audio">
+                            <param id="0" name="Audio file">Flip3</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action disabled="1" id="0" name="Play" sid="215272440946200" type="Audio">
+                            <param id="0" name="Audio file">Flip4</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action disabled="1" id="0" name="Play" sid="899537519978947" type="Audio">
+                            <param id="0" name="Audio file">Flip5</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action disabled="1" id="0" name="Play" sid="260110530908348" type="Audio">
+                            <param id="0" name="Audio file">Flip6</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action disabled="1" id="0" name="Play" sid="128306477672601" type="Audio">
+                            <param id="0" name="Audio file">Flip7</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action disabled="1" id="0" name="Play" sid="115385043706112" type="Audio">
+                            <param id="0" name="Audio file">Reward Flip</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block any="1" sid="925944205213044">
@@ -295,6 +346,24 @@
                         <action id="0" name="Call function" sid="456790736937726" type="Function">
                             <param id="0" name="Name">&quot;lose&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action disabled="1" id="0" name="Play" sid="346096028580962" type="Audio">
+                            <param id="0" name="Audio file">Death Sound</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action disabled="1" id="0" name="Play" sid="771601363641242" type="Audio">
+                            <param id="0" name="Audio file">Death Sound 2</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action disabled="1" id="0" name="Play" sid="201073234387503" type="Audio">
+                            <param id="0" name="Audio file">Death Sound 3</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                     </actions>
                     <sub-events>

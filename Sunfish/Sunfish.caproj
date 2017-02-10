@@ -559,6 +559,36 @@
         <global-instance type="LocalStorage" uid="25" />
     </global-instances>
     <sounds-folder>
+        <sound-folder name="Flips">
+            <file name="Flip 1.m4a" />
+            <file name="Flip 1.ogg" />
+            <file name="Flip2.m4a" />
+            <file name="Flip2.ogg" />
+            <file name="Flip3.m4a" />
+            <file name="Flip3.ogg" />
+            <file name="Flip4.m4a" />
+            <file name="Flip4.ogg" />
+            <file name="Flip5.m4a" />
+            <file name="Flip5.ogg" />
+            <file name="Flip6.m4a" />
+            <file name="Flip6.ogg" />
+            <file name="Flip7.m4a" />
+            <file name="Flip7.ogg" />
+            <file name="Reward Flip.m4a" />
+            <file name="Reward Flip.ogg" />
+        </sound-folder>
+        <sound-folder name="Death Sounds">
+            <file name="Death Sound 2.m4a" />
+            <file name="Death Sound 2.ogg" />
+            <file name="Death Sound 3.m4a" />
+            <file name="Death Sound 3.ogg" />
+            <file name="Death Sound.m4a" />
+            <file name="Death Sound.ogg" />
+        </sound-folder>
+        <sound-folder name="Menu">
+            <file name="Menu Sound.m4a" />
+            <file name="Menu Sound.ogg" />
+        </sound-folder>
         <file name="Explosion 2.m4a" />
         <file name="Explosion 2.ogg" />
     </sounds-folder>
