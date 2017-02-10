@@ -560,8 +560,8 @@
     </global-instances>
     <sounds-folder>
         <sound-folder name="Flips">
-            <file name="Flip 1.m4a" />
-            <file name="Flip 1.ogg" />
+            <file name="Flip1.m4a" />
+            <file name="Flip1.ogg" />
             <file name="Flip2.m4a" />
             <file name="Flip2.ogg" />
             <file name="Flip3.m4a" />
@@ -574,8 +574,8 @@
             <file name="Flip6.ogg" />
             <file name="Flip7.m4a" />
             <file name="Flip7.ogg" />
-            <file name="Reward Flip.m4a" />
-            <file name="Reward Flip.ogg" />
+            <file name="Flip8.m4a" />
+            <file name="Flip8.ogg" />
         </sound-folder>
         <sound-folder name="Death Sounds">
             <file name="Death Sound 2.m4a" />

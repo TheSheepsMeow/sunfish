@@ -47,13 +47,24 @@
                             <param id="0" name="Pin to">player</param>
                             <param id="1" name="Mode">1</param>
                         </action>
-                        <action id="0" name="Play" sid="217489454316835" type="Audio">
-                            <param id="0" name="Audio file">Menu Sound</param>
-                            <param id="2" name="Loop">1</param>
-                            <param id="3" name="Volume">0</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                        </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="994458210643247">
+                            <conditions>
+                                <condition id="5" inverted="1" name="Is tag playing" sid="471683220640408" type="Audio">
+                                    <param id="0" name="Tag">&quot;bgm_menu&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="217489454316835" type="Audio">
+                                    <param id="0" name="Audio file">Menu Sound</param>
+                                    <param id="2" name="Loop">1</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;bgm_menu&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="411856508756537">
                     <conditions />
@@ -93,6 +104,16 @@
                     <conditions />
                     <actions />
                 </event-block>
+                <event-block sid="961455031208149">
+                    <conditions>
+                        <condition id="2" inverted="1" name="Is in touch" sid="332680630813954" type="Touch" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set spraying" sid="174085316244500" type="ParticlesTrail">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="419974042963666">
                     <conditions>
                         <condition id="2" name="Is in touch" sid="132630784964325" type="Touch" />
@@ -112,7 +133,7 @@
                         </action>
                     </actions>
                 </event-block>
-                <comment></comment>
+                <comment>underwater</comment>
                 <event-block sid="809985318351411">
                     <conditions>
                         <condition id="2" inverted="1" name="Is in touch" sid="588791465614397" type="Touch" />
@@ -127,7 +148,20 @@
                         </action>
                     </actions>
                 </event-block>
-                <comment></comment>
+                <event-block sid="345843237383605">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="981014362936604" type="player">
+                            <param id="0" name="Object">water</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="3" name="Set volume" sid="719862440730521" type="Audio">
+                            <param id="0" name="Tag">&quot;bgm_menu&quot;</param>
+                            <param id="1" name="dB">-20</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>above water</comment>
                 <event-block sid="969401752447934">
                     <conditions>
                         <condition id="2" inverted="1" name="Is in touch" sid="877643191014213" type="Touch" />
@@ -146,13 +180,16 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="252710980657350">
+                <event-block sid="713402938109321">
                     <conditions>
-                        <condition id="2" inverted="1" name="Is in touch" sid="215922753352066" type="Touch" />
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="734567208462943" type="player">
+                            <param id="0" name="Object">water</param>
+                        </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set spraying" sid="351589238526366" type="ParticlesTrail">
-                            <param id="0" name="State">0</param>
+                        <action disabled="1" id="3" name="Set volume" sid="989483965545221" type="Audio">
+                            <param id="0" name="Tag">&quot;bgm_menu&quot;</param>
+                            <param id="1" name="dB">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -183,7 +220,7 @@
                             <param id="0" name="Object to create">badAlbatross</param>
                             <param id="1" name="Layer">1</param>
                             <param id="2" name="X">LayoutWidth + 100</param>
-                            <param id="3" name="Y">random(0,150)</param>
+                            <param id="3" name="Y">random(-10,150)</param>
                         </action>
                         <action behavior="Bullet" id="3" name="Set angle of motion" sid="783137967603936" type="badAlbatross">
                             <param id="0" name="Angle">180</param>
@@ -201,7 +238,7 @@
                             <param id="0" name="Object to create">badSealion</param>
                             <param id="1" name="Layer">1</param>
                             <param id="2" name="X">LayoutWidth + 100</param>
-                            <param id="3" name="Y">random(280,320)</param>
+                            <param id="3" name="Y">random(260,320)</param>
                         </action>
                         <action behavior="Bullet" id="3" name="Set angle of motion" sid="412839456271842" type="badSealion">
                             <param id="0" name="Angle">180</param>
@@ -277,55 +314,45 @@
                             <param id="0" name="Variable">eaten</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action disabled="1" id="0" name="Play" sid="876972470743739" type="Audio">
-                            <param id="0" name="Audio file">Flip 1</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">-5</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                        </action>
-                        <action disabled="1" id="0" name="Play" sid="103175716867479" type="Audio">
-                            <param id="0" name="Audio file">Flip2</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">-5</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                        </action>
-                        <action disabled="1" id="0" name="Play" sid="226882081011658" type="Audio">
-                            <param id="0" name="Audio file">Flip3</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">-5</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                        </action>
-                        <action disabled="1" id="0" name="Play" sid="215272440946200" type="Audio">
-                            <param id="0" name="Audio file">Flip4</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">-5</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                        </action>
-                        <action disabled="1" id="0" name="Play" sid="899537519978947" type="Audio">
-                            <param id="0" name="Audio file">Flip5</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">-5</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                        </action>
-                        <action disabled="1" id="0" name="Play" sid="260110530908348" type="Audio">
-                            <param id="0" name="Audio file">Flip6</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">-5</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                        </action>
-                        <action disabled="1" id="0" name="Play" sid="128306477672601" type="Audio">
-                            <param id="0" name="Audio file">Flip7</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">-5</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                        </action>
-                        <action disabled="1" id="0" name="Play" sid="115385043706112" type="Audio">
-                            <param id="0" name="Audio file">Reward Flip</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">-5</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                        </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="416633119228377">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="813933716346212" type="System">
+                                    <param id="0" name="Variable">eaten</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">8</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Play (by name)" sid="546548532642217" type="Audio">
+                                    <param id="0" name="Folder">0</param>
+                                    <param id="1" name="Audio file name">&quot;Flip&quot; &amp; eaten</param>
+                                    <param id="3" name="Loop">0</param>
+                                    <param id="4" name="Volume">0</param>
+                                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="981034639670438">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="121306040655747" type="System">
+                                    <param id="0" name="Variable">eaten</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">8</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Play (by name)" sid="632823930513423" type="Audio">
+                                    <param id="0" name="Folder">0</param>
+                                    <param id="1" name="Audio file name">&quot;Flip8&quot;</param>
+                                    <param id="3" name="Loop">0</param>
+                                    <param id="4" name="Volume">0</param>
+                                    <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block any="1" sid="925944205213044">
                     <conditions>
@@ -346,24 +373,6 @@
                         <action id="0" name="Call function" sid="456790736937726" type="Function">
                             <param id="0" name="Name">&quot;lose&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
-                        </action>
-                        <action disabled="1" id="0" name="Play" sid="346096028580962" type="Audio">
-                            <param id="0" name="Audio file">Death Sound</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">-5</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                        </action>
-                        <action disabled="1" id="0" name="Play" sid="771601363641242" type="Audio">
-                            <param id="0" name="Audio file">Death Sound 2</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">-5</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                        </action>
-                        <action disabled="1" id="0" name="Play" sid="201073234387503" type="Audio">
-                            <param id="0" name="Audio file">Death Sound 3</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">-5</param>
-                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                     </actions>
                     <sub-events>
@@ -702,6 +711,7 @@
                     <conditions />
                     <actions />
                 </event-block>
+                <comment>add: impact sound</comment>
                 <event-block sid="953287390283570">
                     <conditions>
                         <condition id="0" name="On function" sid="229463623158600" type="Function">
@@ -709,6 +719,13 @@
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="7" name="Play (by name)" sid="514253675492079" type="Audio">
+                            <param id="0" name="Folder">0</param>
+                            <param id="1" name="Audio file name">choose(&quot;Death Sound&quot;, &quot;Death Sound 2&quot;, &quot;Death Sound 3&quot;)</param>
+                            <param id="3" name="Loop">0</param>
+                            <param id="4" name="Volume">0</param>
+                            <param id="2" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                         <action id="4" name="Set animation" sid="852699240367229" type="player">
                             <param id="0" name="Animation">&quot;Flipped&quot;</param>
                             <param id="1" name="From">1</param>
@@ -1091,6 +1108,15 @@
                             <param id="1" name="Value">highScore</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <comment>add: new high score sound</comment>
+                        <event-block sid="829131478397338">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="973640224308824" type="System" />
+                            </conditions>
+                            <actions />
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="935549895113686">
                     <conditions />
