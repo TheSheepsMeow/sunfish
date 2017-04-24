@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Game</name>
     <events>
+        <include>LocalStorage</include>
         <variable constant="0" name="score" sid="839053314552458" static="0" type="number">0</variable>
         <variable constant="0" name="playerLastY" sid="576036110205799" static="0" type="number">0</variable>
         <variable constant="0" name="highScore" sid="366162674345702" static="0" type="number">1</variable>
@@ -60,7 +61,7 @@
                                 <action id="0" name="Play" sid="217489454316835" type="Audio">
                                     <param id="0" name="Audio file">Menu Sound</param>
                                     <param id="2" name="Loop">1</param>
-                                    <param id="3" name="Volume">0</param>
+                                    <param id="3" name="Volume">-5</param>
                                     <param id="1" name="Tag (optional)">&quot;bgm_menu&quot;</param>
                                 </action>
                             </actions>
@@ -301,16 +302,16 @@
                 <event-block sid="915015456315796">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="881002609970832" type="player">
-                            <param id="0" name="Object">fish</param>
+                            <param id="0" name="Object">jellyfish</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Spawn another object" sid="456034201219621" type="fish">
+                        <action id="0" name="Spawn another object" sid="456034201219621" type="jellyfish">
                             <param id="0" name="Object">ParticlesFish</param>
                             <param id="1" name="Layer">1</param>
                             <param id="2" name="Image point">0</param>
                         </action>
-                        <action id="-9" name="Destroy" sid="697216953095622" type="fish" />
+                        <action id="-9" name="Destroy" sid="697216953095622" type="jellyfish" />
                         <action id="-10" name="Add to" sid="585939315817388" type="System">
                             <param id="0" name="Variable">eaten</param>
                             <param id="1" name="Value">1</param>
@@ -528,12 +529,12 @@
                     </conditions>
                     <actions>
                         <action id="-3" name="Create object" sid="486630500796242" type="System">
-                            <param id="0" name="Object to create">fish</param>
+                            <param id="0" name="Object to create">jellyfish</param>
                             <param id="1" name="Layer">1</param>
                             <param id="2" name="X">LayoutWidth + 300</param>
                             <param id="3" name="Y">random(300,500)</param>
                         </action>
-                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="166290136999246" type="fish">
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="166290136999246" type="jellyfish">
                             <param id="0" name="Angle">180</param>
                         </action>
                         <action id="-3" name="Create object" sid="625071706079997" type="System">
@@ -766,8 +767,17 @@
                         <action id="-16" name="Wait" sid="853958101182048" type="System">
                             <param id="0" name="Seconds">1</param>
                         </action>
-                        <action id="-26" name="Restart layout" sid="308450791670181" type="System" />
-                        <action id="-21" name="Reset global variables" sid="518400006366543" type="System" />
+                        <action id="-2" name="Go to layout" sid="264144448890003" type="System">
+                            <param id="0" name="Layout">Title</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="129532196385329" type="System">
+                            <param id="0" name="Group name">&quot;Controls&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="928858980701410" type="System">
+                            <param id="0" name="Group name">&quot;Collisions&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="609632451670639">
@@ -984,17 +994,17 @@
                 </event-block>
                 <event-block any="1" sid="923590348943896">
                     <conditions>
-                        <condition id="-1" name="Compare X" sid="978321196593556" type="fish">
+                        <condition id="-1" name="Compare X" sid="978321196593556" type="jellyfish">
                             <param id="0" name="Comparison">3</param>
                             <param id="1" name="X co-ordinate">-800</param>
                         </condition>
-                        <condition id="-1" name="Compare X" sid="819801763205268" type="fish">
+                        <condition id="-1" name="Compare X" sid="819801763205268" type="jellyfish">
                             <param id="0" name="Comparison">5</param>
                             <param id="1" name="X co-ordinate">1200</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" sid="764479816224608" type="fish" />
+                        <action id="-9" name="Destroy" sid="764479816224608" type="jellyfish" />
                     </actions>
                 </event-block>
                 <event-block any="1" sid="666990980717217">
@@ -1037,99 +1047,158 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="736633452739528" title="LocalStorage">
+        <event-group description="" sid="996904654562409" title="End">
             <sub-events>
-                <event-block sid="846078643122578">
+                <event-block sid="684345761676360">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="321066673626516" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="457848900416665" type="System">
+                            <param id="0" name="Layer">&quot;End&quot;</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="484112782868104">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="323998032078868" type="Touch">
+                            <param id="0" name="Object">restartButton</param>
+                        </condition>
+                        <condition id="-9" name="Layer is visible" sid="183166686264497" type="System">
+                            <param id="0" name="Layer">&quot;End&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-26" name="Restart layout" sid="891365580679345" type="System" />
+                        <action id="-21" name="Reset global variables" sid="624317518902181" type="System" />
+                    </actions>
+                </event-block>
+                <event-block sid="640357094771156">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="745736437213372" type="Touch">
+                            <param id="0" name="Object">titleButton</param>
+                        </condition>
+                        <condition id="-9" name="Layer is visible" sid="439614242730178" type="System">
+                            <param id="0" name="Layer">&quot;End&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="345115988901720" type="System">
+                            <param id="0" name="Layout">Title</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="883399706506482">
                     <conditions />
                     <actions />
                 </event-block>
-                <event-block sid="124223646776581">
-                    <conditions>
-                        <condition id="-2" name="On start of layout" sid="375021454355617" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="5" name="Check item exists" sid="806666095342877" type="LocalStorage">
-                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="826049226997496">
-                    <conditions>
-                        <condition id="9" name="On item exists" sid="274794791277557" type="LocalStorage">
-                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="1" name="Get item" sid="464634633297866" type="LocalStorage">
-                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="102649493034540">
-                    <conditions>
-                        <condition id="1" name="On item get" sid="751603213775238" type="LocalStorage">
-                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Set value" sid="324055635596970" type="System">
-                            <param id="0" name="Variable">highScore</param>
-                            <param id="1" name="Value">LocalStorage.ItemValue</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="135303278676911">
-                    <conditions>
-                        <condition id="10" name="On item missing" sid="238399714470637" type="LocalStorage">
-                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Set value" sid="149252435545708" type="System">
-                            <param id="0" name="Variable">highScore</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="954219969155804">
-                    <conditions>
-                        <condition id="-14" name="Compare variable" sid="627013140526728" type="System">
-                            <param id="0" name="Variable">eaten</param>
-                            <param id="1" name="Comparison">4</param>
-                            <param id="2" name="Value">highScore</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Set value" sid="729250024561184" type="System">
-                            <param id="0" name="Variable">highScore</param>
-                            <param id="1" name="Value">eaten</param>
-                        </action>
-                        <action id="0" name="Set item" sid="267340155705901" type="LocalStorage">
-                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
-                            <param id="1" name="Value">highScore</param>
-                        </action>
-                    </actions>
-                    <sub-events>
-                        <comment>add: new high score sound</comment>
-                        <event-block sid="829131478397338">
-                            <conditions>
-                                <condition id="-4" name="Trigger once while true" sid="973640224308824" type="System" />
-                            </conditions>
-                            <actions />
-                        </event-block>
-                    </sub-events>
-                </event-block>
-                <event-block sid="935549895113686">
+                <event-block sid="779295864654998">
                     <conditions />
                     <actions />
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="235327157993374" title="Group10">
+        <event-group description="" sid="896119816183047" title="Home Button">
+            <sub-events>
+                <event-block sid="679932063286019">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <comment>PAUSE</comment>
+                <event-block sid="995866289228385">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="803401843752632" type="Touch">
+                            <param id="0" name="Object">menuButtonHome</param>
+                        </condition>
+                        <condition id="-9" name="Is visible" sid="606925684137489" type="menuButtonHome" />
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="-2" name="Go to layout" sid="986207693131735" type="System">
+                            <param id="0" name="Layout">Title</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="372243332724558" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="736729215987090" type="System">
+                            <param id="0" name="Layer">&quot;End&quot;</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="950010849945499" type="menuButtonHome">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-13" name="Set time scale" sid="540701663136283" type="System">
+                            <param id="0" name="Time scale">0</param>
+                        </action>
+                        <action id="-14" name="Set object time scale" sid="678364378615652" type="System">
+                            <param id="0" name="Object">titleButton</param>
+                            <param id="1" name="Time scale">1.0</param>
+                        </action>
+                        <action id="-14" name="Set object time scale" sid="333839598961903" type="System">
+                            <param id="0" name="Object">restartButton</param>
+                            <param id="1" name="Time scale">1.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>UNPAUSE</comment>
+                <event-block sid="373937128779529">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="750456074088810" type="Touch">
+                            <param id="0" name="Object">endBG</param>
+                        </condition>
+                        <condition id="-9" name="Is visible" sid="493330022994168" type="endBG" />
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="125228964122057" type="System">
+                            <param id="0" name="Layer">&quot;End&quot;</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="606730138927648" type="menuButtonHome">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-13" name="Set time scale" sid="584286347711416" type="System">
+                            <param id="0" name="Time scale">1.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment></comment>
+                <event-block sid="474321572978430">
+                    <conditions>
+                        <condition id="4" name="Is touching object" sid="270674048465010" type="Touch">
+                            <param id="0" name="Object">menuButtonHome</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="863846408453880" type="menuButtonHome">
+                            <param id="0" name="Animation">&quot;Pressed&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="272288756121190">
+                    <conditions>
+                        <condition id="4" inverted="1" name="Is touching object" sid="785145508313296" type="Touch">
+                            <param id="0" name="Object">menuButtonHome</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="315578206078615" type="menuButtonHome">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="235327157993374" title="Score Display">
             <sub-events>
                 <event-block sid="566670644175565">
                     <conditions />
-                    <actions />
+                    <actions>
+                        <action id="0" name="Set text" sid="510288527545986" type="textScore3">
+                            <param id="0" name="Text">eaten &amp; &quot; / &quot; &amp; highScore</param>
+                        </action>
+                    </actions>
                 </event-block>
                 <event-block sid="892036248319633">
                     <conditions />

@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Title</name>
     <events>
+        <include>LocalStorage</include>
         <variable constant="0" name="isMuted" sid="930478480150826" static="0" type="number">0</variable>
         <event-group description="" sid="534139532115464" title="Version">
             <sub-events>
@@ -43,29 +44,29 @@
                     </conditions>
                     <actions>
                         <action id="-3" name="Create object" sid="987876885216453" type="System">
-                            <param id="0" name="Object to create">fish</param>
+                            <param id="0" name="Object to create">jellyfish</param>
                             <param id="1" name="Layer">1</param>
                             <param id="2" name="X">LayoutWidth + 300</param>
                             <param id="3" name="Y">random(300,500)</param>
                         </action>
-                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="548534336348562" type="fish">
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="548534336348562" type="jellyfish">
                             <param id="0" name="Angle">180</param>
                         </action>
                     </actions>
                 </event-block>
                 <event-block any="1" sid="148476495256581">
                     <conditions>
-                        <condition id="-1" name="Compare X" sid="816287562370655" type="fish">
+                        <condition id="-1" name="Compare X" sid="816287562370655" type="jellyfish">
                             <param id="0" name="Comparison">3</param>
                             <param id="1" name="X co-ordinate">-800</param>
                         </condition>
-                        <condition id="-1" name="Compare X" sid="412592935828095" type="fish">
+                        <condition id="-1" name="Compare X" sid="412592935828095" type="jellyfish">
                             <param id="0" name="Comparison">5</param>
                             <param id="1" name="X co-ordinate">1200</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" sid="773755235970386" type="fish" />
+                        <action id="-9" name="Destroy" sid="773755235970386" type="jellyfish" />
                     </actions>
                 </event-block>
             </sub-events>
@@ -218,7 +219,7 @@
                     </conditions>
                     <actions>
                         <action id="0" name="Set text" sid="776003361428325" type="textScore">
-                            <param id="0" name="Text">&quot;high score: &quot; &amp; highScore</param>
+                            <param id="0" name="Text">&quot;jellyfish: &quot; &amp; highScore</param>
                         </action>
                     </actions>
                 </event-block>
@@ -313,9 +314,9 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="8" name="Open URL in new window" sid="525456065871543" type="Browser">
+                        <action id="7" name="Go to URL" sid="525456065871543" type="Browser">
                             <param id="0" name="URL">&quot;http://www.thesheepsmeow.com/html5&quot;</param>
-                            <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                            <param id="1" name="Target">2</param>
                         </action>
                     </actions>
                 </event-block>

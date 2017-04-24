@@ -2,13 +2,13 @@
 <c2project>
     <name>Sunfish</name>
     <description></description>
-    <version>1.0</version>
+    <version>0.2</version>
     <author>The Sheep&apos;s Meow</author>
-    <author-email></author-email>
+    <author-email>games@thesheepsmeow.com</author-email>
     <author-website>http://www.thesheepsmeow.com</author-website>
     <app-id>com.mycompany.myapp</app-id>
     <unique-id>5ibjvf177z81</unique-id>
-    <saved-with-version>23900</saved-with-version>
+    <saved-with-version>24400</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
@@ -28,6 +28,7 @@
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
         <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
     </used-behaviors>
     <used-effects />
     <configurations>
@@ -39,14 +40,15 @@
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
+    <first-layout>Loader</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
-        <prop name="Clear background">Yes</prop>
+        <prop name="Clear background">No</prop>
         <prop name="Downscaling">Medium quality</prop>
         <prop name="Enable WebGL">On</prop>
         <prop name="Fullscreen in browser">Letterbox scale</prop>
         <prop name="Fullscreen scaling">High quality</prop>
-        <prop name="Loader style">Construct 2 splash</prop>
+        <prop name="Loader style">Nothing (not recommended)</prop>
         <prop name="Orientations">Any</prop>
         <prop name="Pause on unfocus">No</prop>
         <prop name="Physics engine">Box2D asm.js</prop>
@@ -106,11 +108,14 @@
             <plugin id="TiledBg" />
             <texture />
         </object-type>
-        <object-type name="fish" sid="387150850424998">
+        <object-type name="jellyfish" sid="387150850424998">
             <plugin id="Sprite" />
             <behaviors>
                 <behavior-type name="Bullet" sid="608805607314263">
                     <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="Sine" sid="580559155859486">
+                    <behavior id="Sin" />
                 </behavior-type>
             </behaviors>
             <animation-folder>
@@ -153,10 +158,9 @@
                     <frame duration="1" hotspotX="0.5" hotspotY="0.502618" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\orca0.png">
                         <collision-poly>
                             <point x="0.99711" y="0.497382" />
-                            <point x="0.867052" y="0.759162" />
-                            <point x="0.5" y="0.95288" />
-                            <point x="0.138728" y="0.748691" />
-                            <point x="0.294798" y="0.497382" />
+                            <point x="0.83237" y="0.753926" />
+                            <point x="0.508671" y="0.780105" />
+                            <point x="0.277456" y="0.696335" />
                             <point x="0.283237" y="0.513089" />
                             <point x="0.5" y="0.293194" />
                             <point x="0.855491" y="0.26178" />
@@ -164,11 +168,10 @@
                     </frame>
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Pitchfork\Desktop\internship prototypes\sunfish assets\orca1.png">
                         <collision-poly>
-                            <point x="0.985294" y="0.5" />
-                            <point x="0.885294" y="0.785714" />
-                            <point x="0.5" y="0.978022" />
-                            <point x="0.164706" y="0.692308" />
-                            <point x="0.161765" y="0.5" />
+                            <point x="0.988235" y="0.576923" />
+                            <point x="0.767647" y="0.796703" />
+                            <point x="0.502941" y="0.802197" />
+                            <point x="0.258824" y="0.681319" />
                             <point x="0.255882" y="0.478022" />
                             <point x="0.5" y="0.285714" />
                             <point x="0.844118" y="0.291209" />
@@ -190,20 +193,18 @@
                         <collision-poly>
                             <point x="0.115385" y="0.176471" />
                             <point x="0.5" y="0.0168067" />
-                            <point x="0.906593" y="0.142857" />
-                            <point x="0.758242" y="0.495798" />
-                            <point x="0.758242" y="0.630252" />
+                            <point x="0.862637" y="0.15126" />
+                            <point x="0.752747" y="0.386554" />
                             <point x="0.5" y="0.428571" />
-                            <point x="0.175824" y="0.731092" />
+                            <point x="0.291209" y="0.386554" />
                         </collision-poly>
                     </frame>
                     <frame duration="1" hotspotX="0.502732" hotspotY="0.72" original-source="C:\Users\Pitchfork\Desktop\bird1.png">
                         <collision-poly>
-                            <point x="0.136612" y="0.2" />
+                            <point x="0.185792" y="0.616" />
                             <point x="0.497268" y="0.592" />
-                            <point x="0.863388" y="0.2" />
-                            <point x="0.830601" y="0.496" />
-                            <point x="0.928962" y="0.896" />
+                            <point x="0.748634" y="0.632" />
+                            <point x="0.846994" y="0.848" />
                             <point x="0.497268" y="0.992" />
                             <point x="0.120219" y="0.824" />
                         </collision-poly>
@@ -335,8 +336,7 @@
                             <point x="0.871345" y="0.75419" />
                             <point x="0.5" y="0.832402" />
                             <point x="0.225146" y="0.569832" />
-                            <point x="0.105263" y="0.497207" />
-                            <point x="0.122807" y="0.234637" />
+                            <point x="0.251462" y="0.396648" />
                             <point x="0.5" y="0.251397" />
                             <point x="0.839181" y="0.307263" />
                         </collision-poly>
@@ -345,9 +345,9 @@
                         <collision-poly>
                             <point x="0.993976" y="0.5" />
                             <point x="0.861446" y="0.75" />
-                            <point x="0.027108" y="0.951087" />
-                            <point x="0.036145" y="0.5" />
-                            <point x="0.274096" y="0.494565" />
+                            <point x="0.499999" y="0.831522" />
+                            <point x="0.20482" y="0.706522" />
+                            <point x="0.198795" y="0.581522" />
                             <point x="0.5" y="0.277174" />
                             <point x="0.828313" y="0.309783" />
                         </collision-poly>
@@ -674,6 +674,44 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="loaderProgress" sid="156749043955342">
+            <plugin id="NinePatch" />
+            <texture original-source="C:\Users\Pitchfork\Desktop\nine.png" />
+        </object-type>
+        <object-type name="textLoading" sid="559670993481358">
+            <plugin id="Spritefont2" />
+            <texture original-source="C:\Users\Pitchfork\Documents\GitHub\template\template\Textures\textScore.png" />
+        </object-type>
+        <object-type name="tiledsheeps" sid="926598831168152">
+            <plugin id="TiledBg" />
+            <texture original-source="C:\Users\Pitchfork\Desktop\tilinesheeps.png" />
+        </object-type>
+        <object-type name="Score" sid="733759932850718">
+            <plugin id="Spritefont2" />
+            <texture />
+        </object-type>
+        <object-type name="scoreBG" sid="196190907448926">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="373645442099773" speed="10">
+                    <frame duration="1" hotspotX="0.503125" hotspotY="0.55" />
+                </animation>
+                <animation framecount="4" loop="1" name="Record" pingpong="0" repeatcount="1" repeatto="0" sid="334424918684085" speed="10">
+                    <frame duration="1" hotspotX="0.503125" hotspotY="0.55" />
+                    <frame duration="1" hotspotX="0.503125" hotspotY="0.55" />
+                    <frame duration="1" hotspotX="0.503125" hotspotY="0.55" />
+                    <frame duration="1" hotspotX="0.503125" hotspotY="0.55" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="textScore2" sid="904261681762600">
+            <plugin id="Spritefont2" />
+            <texture original-source="C:\Users\brian\Downloads\SpriteFont_FiraMono_Regular_(36)_[0,0,0,0]_24x41.png" />
+        </object-type>
+        <object-type name="textScore3" sid="968535429537492">
+            <plugin id="Spritefont2" />
+            <texture original-source="C:\Users\brian\Downloads\SpriteFont_FiraMono_Regular_(36)_[0,0,0,0]_24x41.png" />
+        </object-type>
     </object-folder>
     <families>
         <family name="bad" plugin-id="Sprite" sid="908187443719734">
@@ -703,10 +741,13 @@
     <layout-folder>
         <layout>Game.xml</layout>
         <layout>Title.xml</layout>
+        <layout>Loader.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>Game.xml</event-sheet>
         <event-sheet>Title.xml</event-sheet>
+        <event-sheet>LocalStorage.xml</event-sheet>
+        <event-sheet>Loader.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Touch" uid="1">

@@ -122,7 +122,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="fish" uid="54">
+                <instance type="jellyfish" uid="54">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -132,12 +132,25 @@
                     <behavior-instances>
                         <behavior-instance type="Bullet">
                             <properties>
-                                <speed>400</speed>
+                                <speed>50</speed>
                                 <acceleration>400</acceleration>
                                 <gravity>0</gravity>
                                 <bounce-off-solids>No</bounce-off-solids>
                                 <set-angle>No</set-angle>
                                 <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>Yes</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Sine</wave>
+                                <period>0.5</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>25</magnitude>
+                                <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
@@ -457,7 +470,7 @@
                         <character-width>24</character-width>
                         <character-height>41</character-height>
                         <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#&quot;&apos;&amp;()[]|`\/@°+=*$£€&lt;&gt;</character-set>
-                        <text>fly or swim</text>
+                        <text>flip for jellyfish</text>
                         <scale>0.5</scale>
                         <initial-visibility>Visible</initial-visibility>
                         <horizontal-alignment>Center</horizontal-alignment>
@@ -587,7 +600,7 @@
                         <character-width>24</character-width>
                         <character-height>41</character-height>
                         <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#&quot;&apos;&amp;()[]|`\/@°+=*$£€&lt;&gt;</character-set>
-                        <text>Brian S. Chung, GJ Lee, Warren Savage</text>
+                        <text>Brian Chung, GJ Lee, Warren Savage</text>
                         <scale>0.33</scale>
                         <initial-visibility>Visible</initial-visibility>
                         <horizontal-alignment>Center</horizontal-alignment>

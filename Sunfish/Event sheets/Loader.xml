@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Loader</name>
+    <events>
+        <event-block sid="956293642712270">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="425225024241152" type="System">
+                    <param id="0" name="First value">loadingprogress</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Second value">0.99</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="732021266051389" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="962079354154148" type="System">
+                    <param id="0" name="Layout">Title</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="163247752069220">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="645359846905576" type="System" />
+            </conditions>
+            <actions>
+                <action id="-5" name="Set width" sid="826518510054596" type="loaderProgress">
+                    <param id="0" name="Width">lerp(loaderProgress.Width, 250 * loadingprogress, 0.05)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="542392170744157">
+            <conditions />
+            <actions />
+        </event-block>
+    </events>
+</c2eventsheet>
