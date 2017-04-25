@@ -523,8 +523,8 @@
                 </event-block>
                 <event-block sid="181628679693029">
                     <conditions>
-                        <condition id="-6" name="Every X seconds" sid="415897528872936" type="System">
-                            <param id="0" name="Interval (seconds)">fishrate</param>
+                        <condition id="-6" name="Every X seconds" sid="205337308773132" type="System">
+                            <param id="0" name="Interval (seconds)">fishrate * random (0.8,1.2)</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -532,47 +532,70 @@
                             <param id="0" name="Object to create">jellyfish</param>
                             <param id="1" name="Layer">1</param>
                             <param id="2" name="X">LayoutWidth + 300</param>
-                            <param id="3" name="Y">random(300,500)</param>
+                            <param id="3" name="Y">random(380,500)</param>
                         </action>
                         <action behavior="Bullet" id="3" name="Set angle of motion" sid="166290136999246" type="jellyfish">
                             <param id="0" name="Angle">180</param>
                         </action>
-                        <action id="-3" name="Create object" sid="625071706079997" type="System">
+                    </actions>
+                </event-block>
+                <event-block sid="785276675625619">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="642793359431806" type="System">
+                            <param id="0" name="Interval (seconds)">fishrate * random (0.8,1.2)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="292645334491925" type="System">
+                            <param id="0" name="Object to create">jellyfish</param>
+                            <param id="1" name="Layer">1</param>
+                            <param id="2" name="X">- 300</param>
+                            <param id="3" name="Y">random(0,100)</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="271929534726187" type="jellyfish">
+                            <param id="0" name="Angle">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="308865303838085">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="667993067394616" type="System">
+                            <param id="0" name="Interval (seconds)">fishrate * 1.5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="161769953883799" type="System">
                             <param id="0" name="Object to create">kelp</param>
                             <param id="1" name="Layer">1</param>
                             <param id="2" name="X">LayoutWidth + 300</param>
                             <param id="3" name="Y">LayoutHeight-(kelp.Height/3)+random(-25,150)</param>
                         </action>
-                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="507712694635590" type="kelp">
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="177150341414666" type="kelp">
                             <param id="0" name="Angle">180</param>
                         </action>
-                        <action id="9" name="Set scale" sid="677193031195351" type="kelp">
+                        <action id="9" name="Set scale" sid="392284512343153" type="kelp">
                             <param id="0" name="Scale">random(0.8,1.2)</param>
                         </action>
-                        <action id="-16" name="Set opacity" sid="639060331010849" type="kelp">
+                        <action id="-16" name="Set opacity" sid="692628443994850" type="kelp">
                             <param id="0" name="Opacity">random(40,90)</param>
                         </action>
                     </actions>
                     <sub-events>
-                        <event-block sid="769161284219810">
+                        <event-block sid="506263833913803">
                             <conditions>
-                                <condition id="-8" name="Compare two values" sid="965185941870723" type="System">
+                                <condition id="-8" name="Compare two values" sid="980985625115746" type="System">
                                     <param id="0" name="First value">choose(0,1)</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Second value">0</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="7" name="Set mirrored" sid="367796718222568" type="kelp">
+                                <action id="7" name="Set mirrored" sid="926660851170405" type="kelp">
                                     <param id="0" name="State">0</param>
                                 </action>
                             </actions>
                         </event-block>
                     </sub-events>
-                </event-block>
-                <event-block sid="308865303838085">
-                    <conditions />
-                    <actions />
                 </event-block>
                 <event-block sid="684610561169083">
                     <conditions />

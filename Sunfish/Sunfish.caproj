@@ -117,11 +117,14 @@
                 <behavior-type name="Sine" sid="580559155859486">
                     <behavior id="Sin" />
                 </behavior-type>
+                <behavior-type name="Sine2" sid="538282065046852">
+                    <behavior id="Sin" />
+                </behavior-type>
             </behaviors>
             <animation-folder>
                 <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="244606043065029" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\brian\Downloads\jellyfish1.png" />
+                    <frame duration="1" hotspotX="0.507937" hotspotY="0.5" original-source="C:\Users\brian\Downloads\jellyfish0.png" />
                 </animation>
             </animation-folder>
         </object-type>
