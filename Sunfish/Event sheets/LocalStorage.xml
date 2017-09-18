@@ -15,26 +15,26 @@
                     </conditions>
                     <actions>
                         <action id="5" name="Check item exists" sid="308714710458249" type="LocalStorage">
-                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
+                            <param id="0" name="Key">&quot;highScore_key_sunfish&quot;</param>
                         </action>
                     </actions>
                 </event-block>
                 <event-block sid="304906080657791">
                     <conditions>
                         <condition id="9" name="On item exists" sid="374098510952124" type="LocalStorage">
-                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
+                            <param id="0" name="Key">&quot;highScore_key_sunfish&quot;</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="1" name="Get item" sid="104286549670436" type="LocalStorage">
-                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
+                            <param id="0" name="Key">&quot;highScore_key_sunfish&quot;</param>
                         </action>
                     </actions>
                 </event-block>
                 <event-block sid="177023255666348">
                     <conditions>
                         <condition id="1" name="On item get" sid="710518092792060" type="LocalStorage">
-                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
+                            <param id="0" name="Key">&quot;highScore_key_sunfish&quot;</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -47,7 +47,7 @@
                 <event-block sid="872943106879085">
                     <conditions>
                         <condition id="10" name="On item missing" sid="320280873433761" type="LocalStorage">
-                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
+                            <param id="0" name="Key">&quot;highScore_key_sunfish&quot;</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -71,7 +71,7 @@
                             <param id="1" name="Value">eaten</param>
                         </action>
                         <action id="0" name="Set item" sid="784781509077058" type="LocalStorage">
-                            <param id="0" name="Key">&quot;highScore_key&quot;</param>
+                            <param id="0" name="Key">&quot;highScore_key_sunfish&quot;</param>
                             <param id="1" name="Value">highScore</param>
                         </action>
                         <action id="4" name="Set animation" sid="326054744704608" type="scoreBG">

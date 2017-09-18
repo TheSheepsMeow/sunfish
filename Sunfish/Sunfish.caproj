@@ -2,7 +2,7 @@
 <c2project>
     <name>Sunfish</name>
     <description></description>
-    <version>0.2</version>
+    <version>0.3</version>
     <author>The Sheep&apos;s Meow</author>
     <author-email>games@thesheepsmeow.com</author-email>
     <author-website>http://www.thesheepsmeow.com</author-website>
@@ -587,7 +587,7 @@
             <plugin id="Spritefont2" />
             <texture original-source="C:\Users\brian\Downloads\SpriteFont_FiraMono_Regular_(36)_[0,0,0,0]_24x41.png" />
         </object-type>
-        <object-type name="ad" sid="272753819476356">
+        <object-type name="moregames" sid="272753819476356">
             <plugin id="NinePatch" />
             <texture original-source="C:\Users\brian\Desktop\9p.png" />
         </object-type>

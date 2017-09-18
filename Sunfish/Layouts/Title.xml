@@ -508,7 +508,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="ad" uid="39">
+                <instance type="moregames" uid="39">
                     <properties>
                         <left-margin>16</left-margin>
                         <right-margin>16</right-margin>
