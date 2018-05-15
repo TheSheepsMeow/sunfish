@@ -531,8 +531,8 @@
                         <action id="-3" name="Create object" sid="486630500796242" type="System">
                             <param id="0" name="Object to create">jellyfish</param>
                             <param id="1" name="Layer">1</param>
-                            <param id="2" name="X">LayoutWidth + 300</param>
-                            <param id="3" name="Y">random(380,500)</param>
+                            <param id="2" name="X">LayoutWidth + 100</param>
+                            <param id="3" name="Y">random(300,800)</param>
                         </action>
                         <action behavior="Bullet" id="3" name="Set angle of motion" sid="166290136999246" type="jellyfish">
                             <param id="0" name="Angle">180</param>
@@ -549,8 +549,8 @@
                         <action id="-3" name="Create object" sid="292645334491925" type="System">
                             <param id="0" name="Object to create">jellyfish</param>
                             <param id="1" name="Layer">1</param>
-                            <param id="2" name="X">- 300</param>
-                            <param id="3" name="Y">random(0,100)</param>
+                            <param id="2" name="X">- 100</param>
+                            <param id="3" name="Y">random(300,800)</param>
                         </action>
                         <action behavior="Bullet" id="3" name="Set angle of motion" sid="271929534726187" type="jellyfish">
                             <param id="0" name="Angle">0</param>
